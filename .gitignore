@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+bin/
+bin-launcher/
+debs/
+
+# Virtual environments
+.venv
+venv
+data/
+.history/
+.idea/
+*.deb
+debian/.debhelper/
+debian/files
+debian/name/
+

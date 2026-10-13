@@ -1,0 +1,63 @@
+------ python module ok 
+    ---- dynamic zoom -> wont work for 1,2,4 hemispheres? - supposedly ok
+
+------ multiple terminal emulators
+	- kitty, ghostty, rio -> ok
+
+------ fix when link ending is different from downloaded file - supposedly kinda fixed
+
+------ auto tester - sf
+
+------ licensing - ok
+
+------ bug -> main sources -> gdf.to_crs() string - ok
+
+-------------------------------------------------------------------------------
+
+------ test zip with multiple files
+
+------ import questionary // pip install questionary -> selection
+
+------ remote test
+	------- remote from windows+rio // wsl ? // native ?
+
+------ python versions supported
+
+------ program visuals
+
+------ -- help
+
+------ Package //// compile ////// .deb ? -> test/automation added
+       ----- add python module to package
+
+------ configs module
+    ----- visu version
+    ----- save - EPSG
+    ----- geometry - make_valid(), set_geometry(), drop z
+
+ ------ repo
+
+
+================ next version
+
+- python module
+    ---- add download?
+- visu5
+    ---- add maxbounds?
+- main
+    ---- debugger mode (advanced mode)
+    ----- sanbox mode? intersection // buffer etc - duck ?
+    ------ replace geopandas? arrow? what? -> too big
+    ---- database version?
+  - gee and or other apy module?
+
+================ release readiness
+
+- test .deb installation on a clean supported Linux system
+- test shapefile, GeoPackage, multiple sources, source list, URL, and WFS inputs
+- verify output in claimed supported terminals
+- ensure failures give understandable messages
+- confirm package dependencies install correctly
+- remove debugger stops and resolve known data-loss/security issues
+- document installation, usage, supported terminals, and limitations in README
+- decide which incomplete features need specific limitations instead of calling the whole app experimental

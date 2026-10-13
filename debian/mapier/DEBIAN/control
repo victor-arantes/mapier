@@ -1,0 +1,11 @@
+Package: mapier
+Version: 0.1.0-1
+Architecture: all
+Maintainer: Victor Arantes <123@hotmail.com>
+Installed-Size: 27
+Depends: python3, python3-geopandas, python3-contextily
+Section: science
+Priority: optional
+Description: Terminal geospatial data visualization tool
+ Mapier is a command-line tool for inspecting and visualizing
+ geospatial data from local files and remote services.

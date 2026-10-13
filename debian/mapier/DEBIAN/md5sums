@@ -1,0 +1,8 @@
+b25417dd3e86020435d51f3bd3a21989  usr/bin/mapier
+c7d64a4448ff3b3a9a09de7509e13400  usr/lib/mapier/mapier.py
+25b039e6e58b9ab4353f6435c5253b3f  usr/lib/mapier/renderer.py
+2b38c3ee7e0641af145028d9960a0fba  usr/lib/mapier/requester.py
+13c9b842931c330e6e2666eca1262a43  usr/lib/mapier/saver.py
+79d9816df331e6446e60dfdaec7df29c  usr/lib/mapier/sources.py
+897fef420e062075e323ea6cc91af25b  usr/share/doc/mapier/changelog.Debian.gz
+f0591c66fdc08d1a96f476f4d3a8794d  usr/share/doc/mapier/copyright

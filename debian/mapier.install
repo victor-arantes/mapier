@@ -1,0 +1,7 @@
+bin/mapier.py usr/lib/mapier
+bin/configs.py usr/lib/mapier
+bin/renderer.py usr/lib/mapier
+bin/requester.py usr/lib/mapier
+bin/saver.py usr/lib/mapier
+bin/sources.py usr/lib/mapier
+bin-launcher/mapier usr/bin
