@@ -26,7 +26,7 @@ remote files, and WFS services directly from the command line and displays them.
 ## Install
 
 <!-- latest-release:start -->
-The latest release is [v1.1.4](https://github.com/victor-arantes/mapier/releases/tag/v1.1.4).
+The latest release is [v0.1.4](https://github.com/victor-arantes/mapier/releases/tag/v0.1.4).
 
 Download and install the latest package:
 
