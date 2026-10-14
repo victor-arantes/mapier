@@ -11,19 +11,19 @@ remote files, and WFS services directly from the command line and displays them.
 ## General Workflow
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph LOCAL["Local Machine"]
-        direction TB
-        TERM["Terminal Emulator<br/>"]
+        direction LR
+        TERM["Terminal Emulator"]
     end
 
     subgraph REMOTE["Remote Machine"]
-        direction TB
+        direction LR
         APP["Mapier<br/>Application Execution"]
     end
 
-    TERM -->|"1- SSH Connection"| APP
-    APP -.->|"2- Image Output via<br/>Graphics Protocol"| TERM
+    TERM -->|"1. SSH Connection"| APP
+    APP -.->|"2. Image Output via <br/> Graphics Protocol"| TERM
 ```
 
 ## Requirements
