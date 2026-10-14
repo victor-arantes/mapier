@@ -1,8 +1,12 @@
 from pathlib import Path
 import subprocess
 
+import shapely
 
-def save_downloaded_layers(layers):
+from configs import output_summary
+
+
+def save_downloaded_layers(layers, config):
     if not layers:
         print("\nNo remote layers were downloaded; nothing to save.")
         return 0
@@ -17,6 +21,8 @@ def save_downloaded_layers(layers):
         else:
             print(f"  {number}. {layer.name}")
 
+    print(f"\nExport processing: {output_summary(config)}")
+
     download_dir = Path(
         subprocess.check_output(["xdg-user-dir", "DOWNLOAD"], text=True).strip()
     )
@@ -27,7 +33,7 @@ def save_downloaded_layers(layers):
         if answer == "y":
             choices = choose_layers(layers)
             extension, geopackage_name = choose_extension()
-            save_layers(layers, choices, download_dir, extension, geopackage_name)
+            save_layers(layers, choices, download_dir, extension, geopackage_name, config)
             return 0
 
         if answer in {"", "n"}:
@@ -42,7 +48,7 @@ def choose_layers(layers):
         try:
             choices = [
                 int(choice)
-                for choice in input("Choose layers to save: ").split(",")
+                for choice in input("Choose layers to save (numbers separated by ','): ").split(",")
             ]
         except ValueError:
             print("Please enter numbers separated by commas.")
@@ -81,13 +87,14 @@ def choose_extension():
         return extensions[choice], geopackage_name
 
 
-def save_layers(layers, choices, download_dir, extension, geopackage_name):
+def save_layers(layers, choices, download_dir, extension, geopackage_name, config):
     for choice in choices:
         layer = layers[choice - 1]
+        data = prepare_for_export(layer.data, config)
 
         if extension == ".gpkg" and geopackage_name:
             layer_name = cleaned_name(layer.name)
-            layer.data.to_file(
+            data.to_file(
                 download_dir / f"{geopackage_name}.gpkg",
                 layer=layer_name,
                 driver="GPKG",
@@ -97,11 +104,24 @@ def save_layers(layers, choices, download_dir, extension, geopackage_name):
 
         filename = output_filename(layer, download_dir, extension)
         if extension == ".parquet":
-            layer.data.to_parquet(filename)
+            data.to_parquet(filename)
         else:
-            layer.data.to_file(filename)
+            data.to_file(filename)
 
         print(f"Saved: {filename}")
+
+
+def prepare_for_export(data, config):
+    prepared = data.copy()
+    if config.repair_geometry:
+        prepared.geometry = shapely.make_valid(prepared.geometry)
+    if config.drop_z:
+        prepared.geometry = shapely.force_2d(prepared.geometry)
+    if config.epsg is not None:
+        if prepared.crs is None:
+            raise ValueError("Cannot set an output EPSG for data without a CRS.")
+        prepared = prepared.to_crs(epsg=config.epsg)
+    return prepared
 
 
 def output_filename(layer, download_dir, extension):

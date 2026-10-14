@@ -11,6 +11,7 @@ def source_name(url):
     parsed = urlparse(url)
     return Path(parsed.path).name or parsed.netloc
 
+
 def requester(url, headers=None):
     if headers is None:
         headers = {
@@ -28,7 +29,7 @@ def requester(url, headers=None):
                 size_text = (
                     f" ({int(size) / 1024 / 1024:.2f} MB)" if size else ""
                 )
-                print(f"Downloading {source_name(url)}{size_text}...")
+                print(f"  Downloading{size_text}...")
 
                 filename = r.headers.get("Content-Disposition")
                 nome_arq = source_name(url)
@@ -42,9 +43,9 @@ def requester(url, headers=None):
                     for chunk in r.iter_content(chunk_size=8192):
                         f.write(chunk)
 
-                print(f"Loading {nome_arq}...")
+                print("  Reading data...")
                 result = gpd.read_file(local_zip)
-                print(f"Loaded {nome_arq}.")
+                print("  Done.")
                 return result, nome_arq
 
 def requester2(url, layer):
@@ -127,5 +128,3 @@ def requester3(url):
     list_of_layers = [dic[int(choice)] for choice in choices]
 
     return list_of_layers
-
-

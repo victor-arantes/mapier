@@ -40,23 +40,37 @@ def load_layers(sources):
     print(f"Loading {len(sources)} source(s)...")
 
     for number, source in enumerate(sources, start=1):
-        print(f"[{number}/{len(sources)}] {source}")
+        print(f"[{number}/{len(sources)}] {source_label(source)}")
         if isinstance(source, str) and source.startswith("http"):
             remote_layers = load_remote_layers(source)
             layers.extend(remote_layers)
             downloaded_layers.extend(remote_layers)
-            continue
-
-        layers.append(
-            Layer(
-                name=Path(source).name,
-                data=gpd.read_file(source),
-                source=source,
+        else:
+            print("  Reading data...")
+            layers.append(
+                Layer(
+                    name=Path(source).name,
+                    data=gpd.read_file(source),
+                    source=source,
+                )
             )
-        )
+            print("  Done.")
+        separator()
 
     print("Layers loaded.")
     return layers, downloaded_layers
+
+
+def source_label(source):
+    if isinstance(source, str) and source.startswith("http"):
+        host = source.split("//", 1)[-1].split("/", 1)[0]
+        name = source.split("?", 1)[0].rsplit("/", 1)[-1]
+        return f"{host} — {name}"
+    return Path(source).name
+
+
+def separator():
+    print("-" * 35)
 
 
 def load_remote_layers(url):
