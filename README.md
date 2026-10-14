@@ -6,19 +6,25 @@ remote files, and WFS services directly from the command line and displays them.
 
 ![Mapier terminal demo](assets/demo.gif)
 
-
-# General Workflow
-
-
-┌───────────────────────┐           SSH           ┌───────────────────────┐
-│     Local Machine     │ ──────────────────────► │      Linux Remote     │
-│           +           │                         │          +            │
-│   Terminal Emulator   │ ◄────────────────────── │        Mapier         │
-│   (Rio, Kitty, etc.)  │    Image via Kitty      │                       │
-│                       │    Graphics Protocol    │                       │
-└───────────────────────┘                         └───────────────────────┘
- 
 > Mapier is in active release preparation. Feedback and bug reports are welcome.
+
+## General Workflow
+```
+mermaid
+flowchart LR
+    subgraph LOCAL["Local Machine"]
+        direction TB
+        TERM["Terminal Emulator<br/>"]
+    end
+
+    subgraph REMOTE["Remote Machine"]
+        direction TB
+        APP["Mapier<br/>Application Execution"]
+    end
+
+    TERM -->|"1- SSH Connection"| APP
+    APP -.->|"2- Image Output via<br/>Graphics Protocol"| TERM
+```
 
 ## Requirements
 
