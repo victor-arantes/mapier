@@ -14,6 +14,7 @@ fi
 
 current_version="$(dpkg-parsechangelog -SVersion)"
 maintainer="$(dpkg-parsechangelog -SMaintainer)"
+repository_url="$(gh repo view --json url --jq .url)"
 
 echo "Current package version: $current_version"
 read -r -p "New release version (for example, 0.1.1): " version
@@ -42,6 +43,34 @@ tmp_changelog="$(mktemp)"
     cat debian/changelog
 } > "$tmp_changelog"
 mv "$tmp_changelog" debian/changelog
+
+python3 - "$version" "$repository_url" <<'PY'
+from pathlib import Path
+import sys
+
+version, repository_url = sys.argv[1:]
+path = Path("README.md")
+content = path.read_text()
+start = "<!-- latest-release:start -->"
+end = "<!-- latest-release:end -->"
+replacement = f"""{start}
+The latest release is [v{version}]({repository_url}/releases/tag/v{version}).
+
+Download and install the latest package:
+
+```bash
+wget {repository_url}/releases/latest/download/mapier_latest_all.deb
+sudo apt install ./mapier_latest_all.deb
+```
+{end}"""
+
+if start not in content or end not in content:
+    raise SystemExit("ERROR: README latest-release block is missing.")
+
+before, remainder = content.split(start, 1)
+_, after = remainder.split(end, 1)
+path.write_text(before + replacement + after)
+PY
 
 git add -A
 git commit -m "Release $tag"

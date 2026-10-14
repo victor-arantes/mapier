@@ -9,17 +9,28 @@ layers in another format.
 
 ## Requirements
 
-- Linux
-- A terminal with Kitty graphics protocol support, such as Kitty, Ghostty, or
-  Rio
+- Debian based Linux distro
+- A terminal with [Kitty graphics protocol](https://sw.kovidgoyal.net/kitty/graphics-protocol/)
+  support. Mapier has been tested with:
+  - [Kitty](https://sw.kovidgoyal.net/kitty/)
+  - [Ghostty](https://ghostty.org/docs/features), which supports the Kitty
+    graphics protocol
+  - [Rio](https://rioterm.com/docs/features/kitty-graphics-protocol), which
+    supports the Kitty graphics protocol
+
 
 ## Install
 
-Download a Mapier `.deb` release, then install it with APT:
+<!-- latest-release:start -->
+The latest release is [v0.1.2](https://github.com/victor-arantes/mapier/releases/tag/v0.1.2).
+
+Download and install the latest package:
 
 ```bash
-sudo apt install ./mapier_0.1.0-1_all.deb
+wget https://github.com/victor-arantes/mapier/releases/latest/download/mapier_latest_all.deb
+sudo apt install ./mapier_latest_all.deb
 ```
+<!-- latest-release:end -->
 
 APT installs the package and its declared dependencies.
 
@@ -121,7 +132,7 @@ the resulting `.deb`, `.changes`, and `.buildinfo` files in `debs/`.
 
 ## Demo
 
-Screenshots and terminal recordings are coming soon.
+![Mapier terminal demo](assets/demo.gif)
 
 ## License
 
