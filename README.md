@@ -171,7 +171,9 @@ The following publicly available geospatial datasets and services can be used to
 
 ### Multiple datasets text file
 
-[Multiple datasets](sources)
+Download the text file containing the above mentioned datasets for testing (-> mapier datasets file) 
+
+[Multiple datasets file](sources)
 
 
 ## Build from source
