@@ -138,9 +138,23 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
     echo "== Building package =="
     dpkg-buildpackage -us -uc -b
 
-    mkdir -p debs
+    package_version=$(dpkg-parsechangelog -SVersion)
+    architecture=$(dpkg --print-architecture)
+
+    mkdir -p debs/prev
     shopt -s nullglob
-    artifacts=(../mapier_*.deb ../mapier_*.buildinfo ../mapier_*.changes)
+    previous_artifacts=(debs/mapier_*)
+    for artifact in "${previous_artifacts[@]}"; do
+        if [[ "$artifact" != "debs/mapier_${package_version}_"* ]]; then
+            mv "$artifact" debs/prev/
+        fi
+    done
+
+    artifacts=(
+        "../mapier_${package_version}_all.deb"
+        "../mapier_${package_version}_${architecture}.buildinfo"
+        "../mapier_${package_version}_${architecture}.changes"
+    )
     mv "${artifacts[@]}" debs/
     shopt -u nullglob
 else

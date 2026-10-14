@@ -1,3 +1,9 @@
+mapier (1.1.2-1) unstable; urgency=medium
+
+  * Release 1.1.2.
+
+ -- Victor Arantes <victor.arantes@example.com>  Tue, 13 Oct 2026 23:51:44 -0300
+
 mapier (0.1.1-1) unstable; urgency=medium
 
   * Release 0.1.1.
