@@ -1,9 +1,13 @@
-# Mapier
+# About Mapier
 
 Mapier is a terminal-first viewer for geospatial data. Open local layers,
-remote files, and WFS services directly from the command line, view them in a
-terminal that supports the Kitty graphics protocol, and optionally save remote
-layers in another format.
+remote files, and WFS services directly from the command line and displays them. Designed to solve the very specific issue when you are in a SSH session and have no way of inspecting spatial data whatsoever: 
+
+
+
+![Mapier screenshot](assets/mapier.jpg)
+
+
 
 > Mapier is in active release preparation. Feedback and bug reports are welcome.
 
@@ -22,7 +26,7 @@ layers in another format.
 ## Install
 
 <!-- latest-release:start -->
-The latest release is [v0.1.2](https://github.com/victor-arantes/mapier/releases/tag/v0.1.2).
+The latest release is [v1.1.4](https://github.com/victor-arantes/mapier/releases/tag/v1.1.4).
 
 Download and install the latest package:
 
