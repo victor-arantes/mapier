@@ -1,11 +1,10 @@
 # About Mapier
 
-Mapier is a terminal-first viewer for geospatial data. Open local layers,
-remote files, and WFS services directly from the command line and displays them. Designed to solve the very specific issue when you are in a SSH session and have no way of inspecting spatial data whatsoever: 
+Mapier is a terminal viewer for geospatial data. Open local layers,
+remote files, and WFS services directly from the command line and displays them. Designed to solve the very specific issue when you are in a SSH session or headless machine and have no way of inspecting spatial data whatsoever (or if you just wanna inspect it beforehand without opening a GIS tool or python script): 
 
 
-
-![Mapier screenshot](assets/mapier.jpg)
+![Mapier terminal demo](assets/demo.gif)
 
 
 
@@ -134,9 +133,6 @@ Build the Debian package:
 The build script checks the package files, prompts before building, and places
 the resulting `.deb`, `.changes`, and `.buildinfo` files in `debs/`.
 
-## Demo
-
-![Mapier terminal demo](assets/demo.gif)
 
 ## License
 
