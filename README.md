@@ -1,7 +1,7 @@
 # About Mapier
 
 Mapier is a terminal viewer for geospatial data. Open local layers,
-remote files, and WFS services directly from the command line and displays them. Designed to solve the very specific issue when you are in a SSH session or headless machine and have no way of inspecting spatial data whatsoever (or if you just wanna inspect it beforehand without opening a GIS tool or python script): 
+remote files, and WFS services directly from the command line, display them and save them if you like to. Designed to solve the very specific issue when you are in a SSH session or headless machine and have no way of inspecting spatial data whatsoever (or if you just wanna inspect it beforehand without opening a GIS tool or python script): 
 
 
 ![Mapier terminal demo](assets/demo.gif)
@@ -25,6 +25,7 @@ flowchart TB
     TERM -->|"1. SSH Connection"| APP
     APP -.->|"2. Image Output via <br/> Graphics Protocol"| TERM
 ```
+Note that SSH connecting can be completely skipped if user wants to quick inspect and/or download data locally .
 
 ## Requirements
 
@@ -148,6 +149,30 @@ Available export-processing settings:
 
 Mapier applies enabled transformations only to exported copies; the displayed
 and source data are not modified.
+
+## Sample Datasets
+
+The following publicly available geospatial datasets and services can be used to test Mapier.
+
+### Vector Datasets
+
+| Dataset | Provider | Download |
+|---|---|---|
+| Brazilian Regions (2025) | IBGE | [Download ZIP](https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2025/Brasil/BR_Regioes_2025.zip) |
+| Brazilian Biomes and Coastal-Marine System (2025) | IBGE | [Download ZIP](https://geoftp.ibge.gov.br/informacoes_ambientais/estudos_ambientais/biomas/vetores/2025_Biomas-e-Sistema-Costeiro-Marinho-do-Brasil-1-250000_shp.zip) |
+| Brazilian Forest Service Geospatial Data | SFB | [Download Dataset](https://mapas.florestal.gov.br/portal/sharing/rest/content/items/0f0e8cecbc1e4cdd9d94f6ef1e0a5ae4/data) |
+| Environmental Embargoes | IBAMA | [Download ZIP](https://ftp-pamgia.ibama.gov.br/dados/adm_embargos_ibama_a.zip) |
+
+### WFS Services
+
+| Service | Provider | Endpoint |
+|---|---|---|
+| ICMBio Geospatial Services | ICMBio / INDE | [WFS Endpoint](https://geoservicos.inde.gov.br/geoserver/ICMBio/wfs) |
+
+### Multiple datasets text file
+
+[Multiple datasets](sources)
+
 
 ## Build from source
 
