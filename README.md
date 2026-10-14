@@ -7,7 +7,17 @@ remote files, and WFS services directly from the command line and displays them.
 ![Mapier terminal demo](assets/demo.gif)
 
 
+# General Workflow
 
+
+┌───────────────────────┐           SSH           ┌───────────────────────┐
+│     Local Machine     │ ──────────────────────► │      Linux Remote     │
+│           +           │                         │          +            │
+│   Terminal Emulator   │ ◄────────────────────── │        Mapier         │
+│   (Rio, Kitty, etc.)  │    Image via Kitty      │                       │
+│                       │    Graphics Protocol    │                       │
+└───────────────────────┘                         └───────────────────────┘
+ 
 > Mapier is in active release preparation. Feedback and bug reports are welcome.
 
 ## Requirements
@@ -18,9 +28,18 @@ remote files, and WFS services directly from the command line and displays them.
   - [Kitty](https://sw.kovidgoyal.net/kitty/)
   - [Ghostty](https://ghostty.org/docs/features), which supports the Kitty
     graphics protocol
-  - [Rio](https://rioterm.com/docs/features/kitty-graphics-protocol), which
+  - [Rio](https://rioterm.com/), which
     supports the Kitty graphics protocol
 
+- In case your worflow is Windows ---- SSH ----> Linux:
+
+  - [Rio] Is the recommended terminal emulator, as it has a Windows native version (https://rioterm.com/docs/install/windows)
+    - Users may experience problems with the image rendering when using Windows Rio, due to missing files needed to use the newer Windows ConPTY implementation: 
+	1 - Download the Microsoft.Windows.Console.ConPTY package. 
+        2 - Download the .nupkg file and extract it. A .nupkg is a ZIP archive. (https://www.nuget.org/api/v2/package/Microsoft.Windows.Console.ConPTY/1.25.260930003)
+        3 - From the extracted package, copy these two files into C:\Program Files\Rio\ (or installation folder):
+		- runtimes\win-x64\native\conpty.dll
+		- build\native\runtimes\x64\OpenConsole.exe
 
 ## Install
 
