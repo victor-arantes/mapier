@@ -50,6 +50,7 @@ git commit -m "Release $tag"
 
 artifacts=(
     "debs/mapier_${debian_version}_all.deb"
+    "debs/mapier_latest_all.deb"
     "debs/mapier_${debian_version}_amd64.changes"
     "debs/mapier_${debian_version}_amd64.buildinfo"
 )

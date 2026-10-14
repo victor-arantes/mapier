@@ -3,7 +3,7 @@ b25417dd3e86020435d51f3bd3a21989  usr/bin/mapier
 697d88d3ecb4730f42f3c1e1cff03195  usr/lib/mapier/mapier.py
 25b039e6e58b9ab4353f6435c5253b3f  usr/lib/mapier/renderer.py
 1cf83a5ab710aa5ac5c6c8138a0cd75f  usr/lib/mapier/requester.py
-31ae077cd3b7bbd4cbc4cc768ffd4a9c  usr/lib/mapier/saver.py
+9c91d859d85d44939200cda12d79fe58  usr/lib/mapier/saver.py
 666d45dfe705839fbf00cf79558410f0  usr/lib/mapier/sources.py
-ca52f16ae34588887b633b8e4dd75a0c  usr/share/doc/mapier/changelog.Debian.gz
+29e51bdda172b17bb33f2bd316f3cc35  usr/share/doc/mapier/changelog.Debian.gz
 f0591c66fdc08d1a96f476f4d3a8794d  usr/share/doc/mapier/copyright

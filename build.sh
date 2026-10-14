@@ -145,7 +145,7 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
     shopt -s nullglob
     previous_artifacts=(debs/mapier_*)
     for artifact in "${previous_artifacts[@]}"; do
-        if [[ "$artifact" != "debs/mapier_${package_version}_"* ]]; then
+        if [[ "$artifact" != "debs/mapier_${package_version}_"* && "$artifact" != "debs/mapier_latest_all.deb" ]]; then
             mv "$artifact" debs/prev/
         fi
     done
@@ -156,6 +156,7 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
         "../mapier_${package_version}_${architecture}.changes"
     )
     mv "${artifacts[@]}" debs/
+    cp "debs/mapier_${package_version}_all.deb" debs/mapier_latest_all.deb
     shopt -u nullglob
 else
     echo "Build cancelled."

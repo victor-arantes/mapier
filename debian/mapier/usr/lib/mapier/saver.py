@@ -1,5 +1,7 @@
+import importlib.util
 from pathlib import Path
 import subprocess
+import sys
 
 import shapely
 
@@ -78,6 +80,9 @@ def choose_extension():
             print("Invalid extension. Please choose from 1, 2, 3, or 4.")
             continue
 
+        if choice == 4 and not ensure_pyarrow():
+            continue
+
         geopackage_name = None
         if choice == 2 and input(
             "Geopackage: Type 'y/Y' for one file with multiple layers: "
@@ -85,6 +90,28 @@ def choose_extension():
             geopackage_name = input("Enter geopackage name: ")
 
         return extensions[choice], geopackage_name
+
+
+def ensure_pyarrow():
+    if importlib.util.find_spec("pyarrow") is not None:
+        return True
+
+    print("Parquet export requires PyArrow.")
+    answer = input("Install PyArrow for this user now? [y/N]: ").strip().lower()
+    if answer != "y":
+        print("Parquet export cancelled. Choose another format.")
+        return False
+
+    print("Installing PyArrow...")
+    result = subprocess.run(
+        [sys.executable, "-m", "pip", "install", "--user", "pyarrow"],
+        check=False,
+    )
+    if result.returncode != 0 or importlib.util.find_spec("pyarrow") is None:
+        print("PyArrow could not be installed. Choose another format.")
+        return False
+
+    return True
 
 
 def save_layers(layers, choices, download_dir, extension, geopackage_name, config):
