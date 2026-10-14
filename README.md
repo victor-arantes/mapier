@@ -9,8 +9,8 @@ remote files, and WFS services directly from the command line and displays them.
 > Mapier is in active release preparation. Feedback and bug reports are welcome.
 
 ## General Workflow
-```
-mermaid
+
+```mermaid
 flowchart LR
     subgraph LOCAL["Local Machine"]
         direction TB
