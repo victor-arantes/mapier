@@ -36,16 +36,24 @@ flowchart TB
     graphics protocol
   - [Rio](https://rioterm.com/), which
     supports the Kitty graphics protocol
+    
+## Windows Requirements
 
-- In case your worflow is Windows ---- SSH ----> Linux:
+For users accessing a remote Linux machine from Windows, [Rio](https://rioterm.com/docs/install/windows) is the recommended terminal emulator as it has a native Windows version.
 
-  - [Rio] Is the recommended terminal emulator, as it has a Windows native version (https://rioterm.com/docs/install/windows)
-    - Users may experience problems with the image rendering when using Windows Rio, due to missing files needed to use the newer Windows ConPTY implementation: 
-	1 - Download the Microsoft.Windows.Console.ConPTY package. 
-        2 - Download the .nupkg file and extract it. A .nupkg is a ZIP archive. (https://www.nuget.org/api/v2/package/Microsoft.Windows.Console.ConPTY/1.25.260930003)
-        3 - From the extracted package, copy these two files into C:\Program Files\Rio\ (or installation folder):
-		- runtimes\win-x64\native\conpty.dll
-		- build\native\runtimes\x64\OpenConsole.exe
+**Windows Rio troubleshooting**
+
+Some users may experience image rendering issues with Rio on Windows due to missing files required by the newer Windows ConPTY implementation.
+
+To solve this:
+
+1. Download the [Microsoft.Windows.Console.ConPTY package](https://www.nuget.org/api/v2/package/Microsoft.Windows.Console.ConPTY/1.25.260930003).
+2. Extract the downloaded `.nupkg` file. This is a ZIP archive, so you can rename it to `.zip` if necessary.
+3. From the extracted package, copy the following files into `C:\Program Files\Rio\` (or your Rio installation directory):
+   - `runtimes\win-x64\native\conpty.dll`
+   - `build\native\runtimes\x64\OpenConsole.exe`
+
+Restart Rio after copying the files.
 
 ## Install
 
