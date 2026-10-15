@@ -6,7 +6,7 @@ from configs import configure, load_config
 from renderer import render_layers
 from saver import save_downloaded_layers
 from sources import expand_source_lists, load_layers
-from banner import banner
+from banner import banner, progress_bar
 
 def main():
     arguments = sys.argv[1:]
@@ -21,6 +21,7 @@ def main():
     print("Preparing map…")
     layers, downloaded_layers = load_layers(sources)
     time.sleep(1)
+    progress_bar()
     render_layers(layers)
     save_downloaded_layers(downloaded_layers, config)
 

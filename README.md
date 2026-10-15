@@ -4,7 +4,7 @@ Mapier is a terminal viewer for geospatial data. Open local layers,
 remote files, and WFS services directly from the command line, display them and save them if you like to. Designed to solve the very specific issue when you are in a SSH session or headless machine and have no way of inspecting spatial data whatsoever (or if you just wanna inspect it beforehand without opening a GIS tool or python script): 
 
 
-![Mapier terminal demo](assets/demo.gif)
+![Mapier terminal demo](assets/mapier_demo.gif)
 
 > Mapier is in active release preparation. Feedback and bug reports are welcome.
 

@@ -1,3 +1,20 @@
+import sys
+import time
+
+def progress_bar(total=100, width=40, delay=0.005):
+    for i in range(total + 1):
+        percent = i / total
+        filled = int(width * percent)
+
+        bar = "█" * filled + "░" * (width - filled)
+
+        sys.stdout.write(f"\r|{bar}| {percent:.0%}")
+        sys.stdout.flush()
+        time.sleep(delay)
+
+    print()
+
+
 
 def banner():
 	BANNER = r"""

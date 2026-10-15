@@ -4,4 +4,5 @@ bin/renderer.py usr/lib/mapier
 bin/requester.py usr/lib/mapier
 bin/saver.py usr/lib/mapier
 bin/sources.py usr/lib/mapier
+bin/banner.py usr/lib/mapier
 bin-launcher/mapier usr/bin

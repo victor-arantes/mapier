@@ -12,6 +12,7 @@ cp renderer.py bin/renderer.py
 cp requester.py bin/requester.py
 cp saver.py bin/saver.py
 cp sources.py bin/sources.py
+cp banner.py bin/banner.py
 
 cat > bin-launcher/mapier <<'EOF'
 #!/bin/sh
@@ -38,6 +39,7 @@ files=(
     "bin/requester.py"
     "bin/saver.py"
     "bin/sources.py"
+    "bin/banner.py"
     "bin-launcher/mapier"
     "debian/control"
     "debian/rules"
@@ -80,6 +82,7 @@ expected=(
     "bin/requester.py usr/lib/mapier"
     "bin/saver.py usr/lib/mapier"
     "bin/sources.py usr/lib/mapier"
+    "bin/banner.py usr/lib/mapier"
     "bin-launcher/mapier usr/bin"
 )
 
