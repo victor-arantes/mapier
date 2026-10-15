@@ -59,7 +59,7 @@ Restart Rio after copying the files.
 ## Install
 
 <!-- latest-release:start -->
-The latest release is [v0.1.6](https://github.com/victor-arantes/mapier/releases/tag/v0.1.6).
+The latest release is [v0.1.7](https://github.com/victor-arantes/mapier/releases/tag/v0.1.7).
 
 Download and install the latest package:
 
