@@ -8,7 +8,7 @@ import contextily as ctx
 import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
-
+from banner import banner
 
 def render_layers(layers):
     figure, axis = plt.subplots(figsize=(12, 8))
@@ -30,6 +30,7 @@ def render_layers(layers):
     buffer = BytesIO()
     figure.savefig(buffer, format="png", bbox_inches="tight", dpi=150, facecolor="#010E1ACC")
     subprocess.run(["clear"])
+    banner()
     display_image(buffer.getvalue())
     plt.close(figure)
 

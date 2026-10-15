@@ -24,10 +24,11 @@ def render_layers(layers):
 
     ctx.add_basemap(axis, source=ctx.providers.Esri.WorldImagery)
     axis.set_axis_off()
-    axis.legend(handles=legend)
+    figure.patch.set_facecolor("#010E1ACC")
+    axis.legend(handles=legend, fontsize=8, facecolor= "#010E1A", framealpha = 0.8, labelcolor = "white", edgecolor = "#275457")
 
     buffer = BytesIO()
-    figure.savefig(buffer, format="png", bbox_inches="tight", dpi=150)
+    figure.savefig(buffer, format="png", bbox_inches="tight", dpi=150, facecolor="#010E1ACC")
     subprocess.run(["clear"])
     display_image(buffer.getvalue())
     plt.close(figure)
